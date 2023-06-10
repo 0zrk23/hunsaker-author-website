@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const socektIO = require('socket.io');
+const path = require('path');
 const connectSocketServer = require('./config/socketConnection');
 //const {authMiddleware}  = require('./utils/auth);
 require('dotenv').config();
