@@ -1,7 +1,7 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import Bio from './pages/Books/index';
+import Bio from './pages/Bio/index';
 import Books from "./pages/Books/index";
 import Contact from './pages/Contact/index';
 import SingleBook from "./pages/SingleBook";
@@ -22,7 +22,7 @@ function App() {
           </Route>
           {/* Bio route */}
           <Route
-            path="/Bio"
+            path="/bio"
             element={<Bio/>}
           >
           </Route>
