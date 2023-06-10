@@ -2,7 +2,7 @@ import React from 'react'
 
 function SingleBook() {
   return (
-    <div className='singleBook'>
+    <div className='single-book'>
       SingleBook
     </div>
   )

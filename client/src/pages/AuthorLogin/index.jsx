@@ -2,7 +2,7 @@ import React from 'react'
 
 function AuthorLogin() {
   return (
-    <div className='authorLogin'>
+    <div className='author-login'>
       AuthorLogin
     </div>
   )

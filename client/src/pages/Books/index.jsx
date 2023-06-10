@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Bio() {
+function Books() {
   return (
     <div className='books'>
-      Bio
+      Books
     </div>
   )
 }
 
-export default Bio
+export default Books
