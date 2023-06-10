@@ -1,21 +1,57 @@
+import { HashRouter, Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import Bio from './pages/Books/index';
+import Books from "./pages/Books/index";
+import Contact from './pages/Contact/index';
+import SingleBook from "./pages/SingleBook";
+import Support from './pages/Support/index';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Using Hash Router since this app will be running off  */}
+      <HashRouter>
+        <NavBar/>
+        <Routes>
+          {/* Home route */}
+          <Route
+            path="/"
+            element={<Home/>}
+          >
+          </Route>
+          {/* Bio route */}
+          <Route
+            path="/Bio"
+            element={<Bio/>}
+          >
+          </Route>
+          {/* Books route */}
+          <Route
+            path="/books"
+            element={<Books/>}
+          >
+          </Route>
+          {/* Contact Route */}
+          <Route
+            path="/contact"
+            element={<Contact/>}
+          >
+          </Route>
+          {/* Single Book Route */}
+          <Route
+            path="/singleBook"
+            element={<SingleBook/>}
+          >
+          </Route>
+          {/* Support Route */}
+          <Route
+            path="/support"
+            element={<Support/>}
+          >
+          </Route>
+        </Routes>
+      </HashRouter>
     </div>
   );
 }
