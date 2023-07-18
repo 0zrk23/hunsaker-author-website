@@ -24,7 +24,7 @@ const postSchema = new mongoose.Schema({
 })
 
 function date2String(date){
-  return date.toLocalDateString();
+  return date.toDateString();
 }
 
 const Post = mongoose.model('Post',postSchema);
