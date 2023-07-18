@@ -35,7 +35,7 @@ const initServer = async (typeDefs, resolver) => {
   await apolloServer.start();
   app.use(
     '/graphql',
-    cors({origin: ['http://localhoast:3000']}),
+    cors({origin: ['https://hunsaker-author-website-development.up.railway.app/']}),
     express.urlencoded({ extended: false }),
     express.json(),
     expressMiddleware(apolloServer, {
