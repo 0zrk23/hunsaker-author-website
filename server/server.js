@@ -14,7 +14,7 @@ const app = express();
 
 //set 'build' directory to server static files
 if(process.env.NODE_ENV === 'production'){
-  app.use(express.static(path.join(__dirname,'../client/build')))
+  app.use(express.static(path.join (__dirname,'../client/build')))
 }
 
 //serve web page
@@ -34,7 +34,7 @@ const initServer = async (typeDefs, resolver) => {
   await apolloServer.start();
   app.use(
     '/graphql',
-    cors({origin: ['http://localhoast:4000']}),
+    cors({origin: ['http://localhoast:3000']}),
     express.urlencoded({ extended: false }),
     express.json(),
     expressMiddleware(apolloServer, {
