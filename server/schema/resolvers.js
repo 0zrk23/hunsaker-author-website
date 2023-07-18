@@ -1,11 +1,18 @@
-const {Book} = require('../models')
+const {Book, Post} = require('../models')
 const resolvers = {
   Query: {
-    books: async () => {
+    books: async (parent, args, context) => {
       return await Book.find();
     },
     book: async (parent, {_id}, context) => {
       return await Book.findById({_id});
+    },
+    posts: async (parent, args, context) => {
+      return await Post.find();
+    },
+    post: async (parent, args, context) => {
+      const {_id} = args;
+      return await Post.findById({_id});
     }
   },
   Mutation: {
@@ -24,6 +31,11 @@ const resolvers = {
       //saves and returns the Book
       bookInstance.save();
       return bookInstance;
+    },
+    addPost: async (parents, args, context) => {
+      // const {title, body} = args;
+      const postInstance = await Post.create(args);
+      return postInstance;
     }
   }
 }

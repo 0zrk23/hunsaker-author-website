@@ -1,5 +1,12 @@
 const typeDefs = `#graphql
   # gql typeDefs
+  type Post {
+    _id: ID!
+    title: String!
+    body: String!
+    dateCreated: String!
+  }
+
   type Book {
     _id: ID
     title: String!
@@ -25,6 +32,8 @@ const typeDefs = `#graphql
   type Query {
     books: [Book]
     book(_id: ID!): Book
+    posts: [Post]
+    post(_id: ID!): Post
   }
 
   type Mutation {
@@ -53,6 +62,15 @@ const typeDefs = `#graphql
       lables: [String]
       tags: [String]
     ): Book
+    addPost(
+      title: String!
+      body: String!
+    ): Post
+    updatePost(
+      _id: ID!
+      title: String
+      body: String
+    ): Post
   }
 `;
 

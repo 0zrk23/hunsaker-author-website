@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-require('dotenv').config
+require('dotenv').config();
 
 const adminSchema = new mongoose.Schema({
   username: {
@@ -25,7 +25,7 @@ const adminSchema = new mongoose.Schema({
 
 adminSchema.pre('save',async function(next) {
   if (this.isNew || this.isModified('password')){
-    this.password = await bcrypt.hash(this.password, process.env.SALT);
+    this.password = await bcrypt.hash(this.password, 10);
   }
   next();
 });
