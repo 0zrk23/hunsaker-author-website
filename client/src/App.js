@@ -7,8 +7,6 @@ import {Bio, Books, Contact, Home, SingleBook, Support} from "./pages"
 
 // const socket = io();
 
-const store = createStore
-
 function App() {
   return (
       <div className="App">
