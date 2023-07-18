@@ -1,15 +1,17 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Home from "./pages/Home";
-import Bio from './pages/Bio/index';
-import Books from "./pages/Books/index";
-import Contact from './pages/Contact/index';
-import SingleBook from "./pages/SingleBook";
-import Support from './pages/Support/index';
+import {Bio, Books, Contact, Home, SingleBook, Support} from "./pages"
+// import {Provider} from 'react-redux'
+// import io from 'socket.io-client'
+
+
+// const socket = io();
+
+const store = createStore
 
 function App() {
   return (
-    <div className="App">
+      <div className="App">
       {/* Using Hash Router since this app will be running off  */}
       <HashRouter>
         <NavBar/>
