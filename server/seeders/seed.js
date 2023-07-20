@@ -13,7 +13,7 @@ db.once('open', async () => {
       username: process.env.ADMIN_USER,
       password: process.env.ADMIN_PASS,
     })
-    console.log('Admin Seeded');npm
+    console.log('Admin Seeded');
   } catch (err) {
     console.error(err);
     process.exit(1);
