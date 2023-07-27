@@ -1,2 +1,2 @@
-# Hunsaker's Author Website
+# hunsaker-author-website
 Annika Hunsaker's Author Website

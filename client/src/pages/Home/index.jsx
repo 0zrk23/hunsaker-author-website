@@ -19,12 +19,9 @@ function Home() {
       console.log(err);
     }
   }
-
   return (
     <div>
-      {/* Books container */}
       Home
-      <button onClick={handleUpdate}>test</button>
     </div>
   )
 }
