@@ -7,6 +7,7 @@ const http = require('http');
 const cors = require('cors');
 const {typeDefs, resolvers} = require('./schema');
 const db = require('./config/connection');
+const { authMiddleware } = require('./utils/auth');
 require('dotenv').config();
 
 
@@ -32,26 +33,22 @@ const apolloServer = new ApolloServer({
   introspection: true,
 });
 
+
 const initServer = async (typeDefs, resolver) => {
   await apolloServer.start();
   app.use(
     '/graphql',
-    cors({origin: ['https://hunsaker-author-website-development.up.railway.app', 'https://studio.apollographql.com']}),
+    cors({origin: process.env.ORIGINS.split(', ')}),
     express.urlencoded({ extended: false }),
     express.json(),
     expressMiddleware(apolloServer, {
-      context: async ({ req }) => ({ token: req.headers.token }),
+      context: authMiddleware,
     }),
   );
   // httpServer.listen({port: process.env.PORT},resolver);
   db.once('open', async () => {
     await new Promise((resolve) => httpServer.listen({port: process.env.PORT},resolve))
-    if(process.env.NODE_ENV !== 'production'){
-      console.log(`API server running on port: ${process.env.PORT}`)
-      console.log(`🚀 Server ready at http://localhost:${process.env.PORT}/graphql`);
-      return;
-    }
-    console.log(`🚀 GQL server ready at https://hunsaker-author-website-development.up.railway.app/graphql`)
+    console.log(`🚀 Server ready at ${process.env.SERVER_URL}/graphql`);
   })
   
 }

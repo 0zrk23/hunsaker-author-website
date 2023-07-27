@@ -23,12 +23,9 @@ const adminSchema = new mongoose.Schema({
 
 })
 
-adminSchema.pre('save',async function(next) {
+adminSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')){
-    // console.log(process.env.SALT);
-    // const salt = JSON.stringify(process.env.SALT);
-    // console.log(salt);
-    this.password = await bcrypt.hash(this.password, 11);
+    this.password = await bcrypt.hash(this.password,parseInt(process.env.SALT_ROUNDS));
   }
   next();
 });
