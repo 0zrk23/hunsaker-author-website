@@ -1,10 +1,9 @@
-import { useMutation, useQuery } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import React from 'react'
-import { GET_BOOKS } from '../../utils/queries'
 import { UPDATE_BOOK } from '../../utils/mutations'
 
 function Home() {
-  const [updateBook,{loading,data,error}] = useMutation(UPDATE_BOOK);
+  const [updateBook] = useMutation(UPDATE_BOOK);
   
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -17,7 +16,7 @@ function Home() {
       })
       console.log(data);
     } catch (err) {
-      console.log(error);
+      console.log(err);
     }
   }
 
