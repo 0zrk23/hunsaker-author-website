@@ -24,6 +24,16 @@ const typeDefs = `#graphql
     url: String!
   }
 
+  type Admin {
+    _id: ID!
+    username: String!
+  }
+
+  type Auth {
+    token: ID!
+    admin: Admin
+  }
+
   input linkContent {
     site: String!
     url: String!
@@ -37,6 +47,8 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
+    #type for logging in
+    login(username: String!, password: String!): Auth
     #type for adding book
     addBook(
       title: String!

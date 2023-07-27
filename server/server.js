@@ -7,6 +7,7 @@ const http = require('http');
 const cors = require('cors');
 const {typeDefs, resolvers} = require('./schema');
 const db = require('./config/connection');
+const { authMiddleware } = require('./utils/auth');
 require('dotenv').config();
 
 
@@ -41,7 +42,7 @@ const initServer = async (typeDefs, resolver) => {
     express.urlencoded({ extended: false }),
     express.json(),
     expressMiddleware(apolloServer, {
-      context: async ({ req }) => ({ token: req.headers.token }),
+      context: authMiddleware,
     }),
   );
   // httpServer.listen({port: process.env.PORT},resolver);
