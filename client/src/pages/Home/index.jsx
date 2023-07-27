@@ -1,5 +1,4 @@
 import { useMutation } from '@apollo/client'
-import React from 'react'
 import { UPDATE_BOOK } from '../../utils/mutations'
 
 function Home() {
