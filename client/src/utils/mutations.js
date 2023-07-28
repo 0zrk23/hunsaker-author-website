@@ -30,3 +30,7 @@ export const UPDATE_BOOK = gql`
     }
   }
 `
+
+export const ADD_BOOK = gql`
+  
+`
