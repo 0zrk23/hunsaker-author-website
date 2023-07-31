@@ -98,7 +98,7 @@ const resolvers = {
         throw new GraphQLError('Login Information is Incorrect',{
           extensions: {
             code: 'INCORRECT_LOGIN',
-            http: {status: 404}
+            http: '404'
           }
         })
       }
@@ -108,7 +108,7 @@ const resolvers = {
         throw new GraphQLError('Login Information is Incorrect',{
           extensions: {
             code: 'INCORRECT_LOGIN',
-            http: {status: 404}
+            http: '404'
           }
         })
       }
