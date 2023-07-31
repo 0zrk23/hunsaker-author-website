@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
-import {RestLink} from 'apollo-link-rest'
+import './sass/style.scss';
 
 const httpLink = new HttpLink({
   uri: `${process.env.REACT_APP_URI}/graphql`,
