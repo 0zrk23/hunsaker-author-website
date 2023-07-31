@@ -32,5 +32,41 @@ export const UPDATE_BOOK = gql`
 `
 
 export const ADD_BOOK = gql`
-  
+  mutation Mutation($title: String!, $synopsis: String!, $elevatorPitch: String!, $cover: String, $mockUp: String, $genre: [String]!, $labels: [String], $tags: [String], $links: [linkContent]!) {
+  addBook(title: $title, synopsis: $synopsis, elevatorPitch: $elevatorPitch, cover: $cover, mockUp: $mockUp, genre: $genre, labels: $labels, tags: $tags, links: $links) {
+    _id
+    cover
+    elevatorPitch
+    genre
+    links {
+      site
+      url
+    }
+    mockUp
+    synopsis
+    title
+  }
+}
+`
+
+export const ADD_POST = gql`
+  mutation Mutation($title: String!, $body: String!) {
+    addPost(title: $title, body: $body) {
+      _id
+      body
+      dateCreated
+      title
+    }
+  }
+`
+
+export const UPDATE_POST =  gql`
+  mutation Mutation($_id: ID!, $title: String, $body: String) {
+    updatePost(_id: $_id, title: $title, body: $body) {
+      _id
+      body
+      dateCreated
+      title
+    }
+  }
 `
