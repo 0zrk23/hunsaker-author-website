@@ -1,7 +1,6 @@
-//test
-import { gql } from "@apollo/client";
 
-export const GET_BOOKS = gql`
+
+export const GET_BOOKS = `
   query Query {
     books {
       _id
@@ -19,7 +18,7 @@ export const GET_BOOKS = gql`
   }
 `
 
-export const GET_BOOK = gql`
+export const GET_BOOK = `
   query Query ($_id: ID!) {
     book (_id: $_id){
       _id
@@ -36,7 +35,7 @@ export const GET_BOOK = gql`
     }
   }
 `
-export const GET_POSTS = gql`
+export const GET_POSTS = `
   query Query {
     posts {
       _id
@@ -47,7 +46,7 @@ export const GET_POSTS = gql`
   }
 `
 
-export const GET_POST = gql`
+export const GET_POST = `
    query Query ($_id: ID!) {
     post (_id: $_id){
       _id
@@ -57,3 +56,4 @@ export const GET_POST = gql`
     }
    }
 `
+
