@@ -27,6 +27,7 @@ const resolvers = {
   Query: {
     //Logs query and returns all Books
     books: async (parent, args, context) => {
+      
       console.log(`${Date().toString()}: Books Queried`)
       return await Book.find();
     },
@@ -98,7 +99,7 @@ const resolvers = {
         throw new GraphQLError('Login Information is Incorrect',{
           extensions: {
             code: 'INCORRECT_LOGIN',
-            http: {status: 404}
+            http: '404'
           }
         })
       }
@@ -108,7 +109,7 @@ const resolvers = {
         throw new GraphQLError('Login Information is Incorrect',{
           extensions: {
             code: 'INCORRECT_LOGIN',
-            http: {status: 404}
+            http: '404'
           }
         })
       }

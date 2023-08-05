@@ -1,13 +1,14 @@
 import { useMutation } from '@apollo/client';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { LOGIN } from '../../utils/mutations';
 import { Auth } from '../../utils/Auth';
 
 function AuthorLogin() {
   const [formState, setFormState] = useState({username: '', password: ''});
-  const [isShown, setIsShown] = useState(false);
-  const [login,{loading,data,error}] = useMutation(LOGIN);
-  const [isCorrect, setIsCorrect] = useState(true);
+  // const [isShown, setIsShown] = useState(false);
+  const [login] = useMutation(LOGIN);
+  // const [isCorrect, setIsCorrect] = useState(true);
+
 
   const handleChange= (event) => {
     const {name, value} = event.target;
@@ -44,7 +45,7 @@ function AuthorLogin() {
         </div>
         <div>
           <label>Password</label>
-          <input name='password' type={isShown ? 'text': 'password'} placeholder='***********' onChange={handleChange}/>
+          <input name='password' type={'password'} placeholder='***********' onChange={handleChange}/>
         </div>
         <button className='submit'>Submit</button>
       </form>
