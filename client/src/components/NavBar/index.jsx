@@ -1,13 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Auth } from '../../utils/Auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { loggedOut } from '../../redux/loginSlice';
 
 function NavBar() {
+  const {loggedIn} = useSelector((state) => state.login)
+  const dispatch = useDispatch();
   const pagePaths = ['/','/bio','/books','/contact','/support']
   const pageNames = ['Home','Bio','Books','Contact','Support Me']
 
+
+  
+
   const handleLogout = () => {
-    Auth.logout();
+    dispatch(loggedOut());
   }
 
   return (
@@ -28,7 +35,7 @@ function NavBar() {
         </div>
       </div>
       {
-        Auth.loggedIn() && (
+        loggedIn && (
           <button
             onClick={handleLogout}
           >

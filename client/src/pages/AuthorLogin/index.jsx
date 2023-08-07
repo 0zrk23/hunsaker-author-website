@@ -2,9 +2,13 @@ import { useMutation } from '@apollo/client';
 import React, { useState } from 'react'
 import { LOGIN } from '../../utils/mutations';
 import { Auth } from '../../utils/Auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { loggedIn } from '../../redux/loginSlice';
 
 function AuthorLogin() {
+  // const {loggedIn} = useSelector((state) => state.login);
   const [formState, setFormState] = useState({username: '', password: ''});
+  const dispatch = useDispatch();
   // const [isShown, setIsShown] = useState(false);
   const [login] = useMutation(LOGIN);
   // const [isCorrect, setIsCorrect] = useState(true);
@@ -21,13 +25,11 @@ function AuthorLogin() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // console.log(auth.isTokenExpired())
       const {data} = await login({
         variables: formState
-      })
-      Auth.login(data.login.token);
-      Auth.isTokenExpired();
-      console.log(Date.now()/1000);
+      });
+      dispatch(loggedIn({token: data.login.token}));
+      // Auth.login(data.login.token);
     } catch (err) {
       console.log(err);
     }

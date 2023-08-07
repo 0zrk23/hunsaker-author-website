@@ -1,5 +1,5 @@
-//test
-import { gql } from "@apollo/client";
+import { gql } from "@apollo/client"
+
 
 export const GET_BOOKS = gql`
   query Query {
@@ -57,3 +57,4 @@ export const GET_POST = gql`
     }
    }
 `
+

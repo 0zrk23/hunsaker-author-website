@@ -27,6 +27,7 @@ const resolvers = {
   Query: {
     //Logs query and returns all Books
     books: async (parent, args, context) => {
+      
       console.log(`${Date().toString()}: Books Queried`)
       return await Book.find();
     },
