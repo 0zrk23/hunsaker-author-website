@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-// import {ApolloProvider} from '@apollo/client';
+import {ApolloProvider} from '@apollo/client';
 import {Provider} from 'react-redux'
 import './sass/style.scss';
-// import { client } from './services/apolloClient';
+import { client } from './services/apolloClient';
 // import { GET_POSTS } from './utils/queries';
 import { store } from './redux/store';
 
@@ -16,9 +16,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <ApolloProvider client={client}> */}
+      <ApolloProvider client={client}>
         <App />
-      {/* </ApolloProvider> */}
+      </ApolloProvider>
     </Provider>
   </React.StrictMode>
 );

@@ -4,11 +4,11 @@ class AuthService{
   login(token){
     localStorage.setItem('token',token)
     window.location.assign('/#/')
-    window.location.reload();
+    // window.location.reload();
   }
   logout(){
     localStorage.removeItem('token');
-    window.location.reload();
+    // window.location.reload();
   }
   getToken(){
     return localStorage.getItem('token');

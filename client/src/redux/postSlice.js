@@ -1,4 +1,4 @@
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { GET_POSTS } from "../utils/queries";
 import { queryServer } from "../utils/helpers";
@@ -28,7 +28,7 @@ const postSlice = createSlice({
     postFormReducer: {
       
     }
-  }
+  },
   extraReducers(builder){
     builder
       .addCase(fetchPosts.pending,(state,action) => {

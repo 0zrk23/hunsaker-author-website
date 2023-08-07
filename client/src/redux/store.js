@@ -1,13 +1,10 @@
-import {configureStore, createAsyncThunk} from '@reduxjs/toolkit';
-import { postReducer } from './postSlice';
+import {configureStore} from '@reduxjs/toolkit';
+import { loginReducer } from './loginSlice';
+// import { postReducer } from './postSlice';
 
 export const store = configureStore({
   reducer: {
-    posts: postReducer,
+    // posts: postReducer,
+    login: loginReducer,
   }
 })
-
-
-const fetchLogin = createAsyncThunk('users/login',async () => {
-  
-});

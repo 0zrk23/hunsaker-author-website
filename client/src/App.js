@@ -1,13 +1,15 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import {AuthorLogin, Bio, Books, Contact, Home, SingleBook, Support} from "./pages"
-// import {Provider} from 'react-redux'
-// import io from 'socket.io-client'
-
-
-// const socket = io();
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { checkLogin } from "./redux/loginSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(checkLogin());
+  })
   return (
       <div className="App">
       {/* Using Hash Router since this app will be running off  */}

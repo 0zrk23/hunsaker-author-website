@@ -1,6 +1,7 @@
+import { gql } from "@apollo/client"
 
 
-export const GET_BOOKS = `
+export const GET_BOOKS = gql`
   query Query {
     books {
       _id
@@ -18,7 +19,7 @@ export const GET_BOOKS = `
   }
 `
 
-export const GET_BOOK = `
+export const GET_BOOK = gql`
   query Query ($_id: ID!) {
     book (_id: $_id){
       _id
@@ -35,7 +36,7 @@ export const GET_BOOK = `
     }
   }
 `
-export const GET_POSTS = `
+export const GET_POSTS = gql`
   query Query {
     posts {
       _id
@@ -46,7 +47,7 @@ export const GET_POSTS = `
   }
 `
 
-export const GET_POST = `
+export const GET_POST = gql`
    query Query ($_id: ID!) {
     post (_id: $_id){
       _id

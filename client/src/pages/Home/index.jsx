@@ -1,7 +1,8 @@
+import { useSelector } from "react-redux";
 import PostContainer from "../../components/PostContainer";
 
 function Home() {
-
+  
   return (
     <div>
       {/* Picture slider */}
